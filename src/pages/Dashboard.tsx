@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { Route, ReportIncident, BookOpen, Star, User } from 'lucide-react';
+import { Route, AlertTriangle, BookOpen, Star, User } from 'lucide-react';
 
 const Dashboard = () => {
   const features = [
@@ -14,7 +14,7 @@ const Dashboard = () => {
     {
       name: 'Report Incident',
       description: 'Report incidents anonymously to help other women stay safe in your community.',
-      icon: <ReportIncident className="h-12 w-12 text-serenova-500" />,
+      icon: <AlertTriangle className="h-12 w-12 text-serenova-500" />,
       path: '/report-incident'
     },
     {

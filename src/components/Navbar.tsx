@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  Route, ReportIncident, BookOpen, Star, User, LogOut,
+  Route, AlertTriangle, BookOpen, Star, User, LogOut,
   Menu, X
 } from 'lucide-react';
 
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Route Planner", path: "/route-planner", icon: <Route className="w-5 h-5" /> },
-    { name: "Report Incident", path: "/report-incident", icon: <ReportIncident className="w-5 h-5" /> },
+    { name: "Report Incident", path: "/report-incident", icon: <AlertTriangle className="w-5 h-5" /> },
     { name: "Survivor Blog", path: "/survivor-blog", icon: <BookOpen className="w-5 h-5" /> },
     { name: "Rate a Route", path: "/rate-route", icon: <Star className="w-5 h-5" /> },
     { name: "Profile", path: "/profile", icon: <User className="w-5 h-5" /> },
