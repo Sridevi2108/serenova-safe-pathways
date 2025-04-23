@@ -1,5 +1,6 @@
-
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import Layout from '../components/Layout';
 import SafetyMap from '../components/SafetyMap';
 import { useToast } from "@/hooks/use-toast";
@@ -44,9 +45,17 @@ const PublicRoutePlanner = () => {
   return (
     <Layout>
       <div className="serenova-container py-8">
-        <div className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2 text-serenova-700">Find the Safest Route</h1>
-          <p className="text-gray-600">Plan your journey with safety in mind.</p>
+        <div className="flex items-center mb-8">
+          <Link 
+            to="/" 
+            className="mr-4 text-serenova-700 hover:text-serenova-900 transition-colors"
+          >
+            <ArrowLeft className="h-6 w-6" />
+          </Link>
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold mb-2 text-serenova-700">Find the Safest Route</h1>
+            <p className="text-gray-600">Plan your journey with safety in mind.</p>
+          </div>
         </div>
         
         <div className="card mb-6">
