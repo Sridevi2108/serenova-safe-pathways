@@ -38,7 +38,7 @@ const LandingPage = () => {
               </Link>
               
               <Link
-                to="/route-planner"
+                to="/public-route-planner"
                 className="btn-outline block w-full"
               >
                 Use Route Planner
