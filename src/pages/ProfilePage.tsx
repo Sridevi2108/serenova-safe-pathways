@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Layout from '../components/Layout';
 import FloatingLabelInput from '../components/FloatingLabelInput';
@@ -58,9 +57,12 @@ const ProfilePage = () => {
       valid = false;
     }
 
-    if (userData.phoneNumber && !/^\d{10}$/.test(userData.phoneNumber.replace(/\D/g, ''))) {
-      newErrors.phoneNumber = 'Phone number must be valid';
-      valid = false;
+    if (userData.phoneNumber && userData.phoneNumber.trim() !== '') {
+      const digitsOnly = userData.phoneNumber.replace(/\D/g, '');
+      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+        newErrors.phoneNumber = 'Phone number must have 10-15 digits';
+        valid = false;
+      }
     }
 
     if (!userData.emergencyContactName) {
@@ -71,9 +73,12 @@ const ProfilePage = () => {
     if (!userData.emergencyContactNumber) {
       newErrors.emergencyContactNumber = 'Emergency Contact Number is required';
       valid = false;
-    } else if (!/^\d{10}$/.test(userData.emergencyContactNumber.replace(/\D/g, ''))) {
-      newErrors.emergencyContactNumber = 'Contact number must be valid';
-      valid = false;
+    } else {
+      const digitsOnly = userData.emergencyContactNumber.replace(/\D/g, '');
+      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+        newErrors.emergencyContactNumber = 'Contact number must have 10-15 digits';
+        valid = false;
+      }
     }
 
     setErrors(newErrors);

@@ -71,9 +71,13 @@ const RegisterPage = () => {
       valid = false;
     }
 
-    if (formData.phoneNumber && !/^\d{10}$/.test(formData.phoneNumber.replace(/\D/g, ''))) {
-      newErrors.phoneNumber = 'Phone number must be valid';
-      valid = false;
+    // Updated phone number validation
+    if (formData.phoneNumber && formData.phoneNumber.trim() !== '') {
+      const digitsOnly = formData.phoneNumber.replace(/\D/g, '');
+      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+        newErrors.phoneNumber = 'Phone number must have 10-15 digits';
+        valid = false;
+      }
     }
 
     if (!formData.emergencyContactName) {
@@ -81,12 +85,16 @@ const RegisterPage = () => {
       valid = false;
     }
 
+    // Updated emergency contact number validation
     if (!formData.emergencyContactNumber) {
       newErrors.emergencyContactNumber = 'Emergency Contact Number is required';
       valid = false;
-    } else if (!/^\d{10}$/.test(formData.emergencyContactNumber.replace(/\D/g, ''))) {
-      newErrors.emergencyContactNumber = 'Contact number must be valid';
-      valid = false;
+    } else {
+      const digitsOnly = formData.emergencyContactNumber.replace(/\D/g, '');
+      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+        newErrors.emergencyContactNumber = 'Contact number must have 10-15 digits';
+        valid = false;
+      }
     }
 
     setErrors(newErrors);
@@ -179,6 +187,7 @@ const RegisterPage = () => {
                 onChange={handleChange}
                 error={errors.phoneNumber}
                 autoComplete="tel"
+                placeholder="e.g., 123-456-7890"
               />
 
               <h3 className="text-md font-semibold mt-6 mb-3 text-serenova-700">Emergency Contact</h3>
@@ -201,6 +210,7 @@ const RegisterPage = () => {
                 value={formData.emergencyContactNumber}
                 onChange={handleChange}
                 error={errors.emergencyContactNumber}
+                placeholder="e.g., 123-456-7890"
               />
 
               <div className="mt-6">
