@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { Route, AlertTriangle, BookOpen, Star, User } from 'lucide-react';
+import { Route, AlertTriangle, BookOpen, Star, User, Phone } from 'lucide-react';
 
 const Dashboard = () => {
   const features = [
@@ -34,7 +34,14 @@ const Dashboard = () => {
       description: 'Update your personal information and emergency contacts.',
       icon: <User className="h-12 w-12 text-serenova-500" />,
       path: '/profile'
+    },
+    {
+      name: 'Helpline',
+      description: 'Need help? Call our emergency helpline for immediate assistance.',
+      icon: <Phone className="h-12 w-12 text-serenova-500" />,
+      path: '/emergency'  // Link to the Emergency page
     }
+    
   ];
 
   return (
